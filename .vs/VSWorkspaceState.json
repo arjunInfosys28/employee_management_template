@@ -1,4 +1,9 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\template",
+    "\\template\\employeeMangement"
+  ],
+  "SelectedNode": "\\template\\employeeMangement\\employeeMangement.slnx",
   "PreviewInSolutionExplorer": false
 }
