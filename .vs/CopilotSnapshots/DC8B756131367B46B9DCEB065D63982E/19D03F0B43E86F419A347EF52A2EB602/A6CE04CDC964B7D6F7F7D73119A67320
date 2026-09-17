@@ -1,0 +1,63 @@
+﻿Interview Cheat Sheet - Top 20 Questions (short answers)
+
+1) What is SOLID?
+- Set of five design principles: SRP, OCP, LSP, ISP, DIP. Helps make code maintainable.
+
+2) What's SRP?
+- Single Responsibility Principle: a class should have one reason to change.
+
+3) What is dependency injection?
+- Supplying dependencies from the outside (constructor injection is common). Improves testability.
+
+4) When to use Singleton vs Scoped vs Transient?
+- Singleton: single instance app-wide; Scoped: one per request; Transient: new each time.
+
+5) How does middleware work in ASP.NET Core?
+- It's a pipeline; each middleware may call next() or short-circuit by not calling it.
+
+6) How to handle exceptions globally?
+- Use middleware (GlobalExceptionMiddleware) to catch and map exceptions to HTTP responses.
+
+7) How to get the highest salary in LINQ?
+- employees.OrderByDescending(e => e.Salary).FirstOrDefault(); or use Max then FirstOrDefault.
+
+8) How to remove duplicates by a key in LINQ?
+- employees.GroupBy(e => e.Email).Select(g => g.First()).ToList();
+
+9) When to use interface vs abstract class?
+- Interface: contract without implementation. Abstract class: share base implementation.
+
+10) What's Liskov Substitution Principle?
+- Subtypes must be usable wherever base types are expected without changing correctness.
+
+11) What is a Factory pattern?
+- Creational pattern to centralize object creation when logic varies or needs runtime data.
+
+12) Why avoid leaking exception details to clients?
+- Security and information leakage; log details server-side and return generic messages.
+
+13) How to unit test a controller that uses a service?
+- Inject a mock service (IEmployeeService) into the controller and assert behavior.
+
+14) What's the difference between IQueryable and IEnumerable?
+- IQueryable builds expression trees executed by the provider (deferred to DB). IEnumerable runs in-memory.
+
+15) How to paginate results in SQL and LINQ?
+- SQL: OFFSET @skip ROWS FETCH NEXT @take ROWS ONLY. LINQ: .Skip(skip).Take(take).
+
+16) How to map domain errors to HTTP codes?
+- Throw domain exceptions (ValidationException, NotFoundException) and map them in middleware to 400/404.
+
+17) What is ISP (Interface Segregation)?
+- Prefer many small interfaces to one big interface so clients depend only on what they use.
+
+18) How does DIP relate to testing?
+- By depending on abstractions and injecting implementations, you can replace them with mocks in tests.
+
+19) When to use async/await in repositories?
+- Use async for I/O-bound operations (DB, network) to avoid blocking threads.
+
+20) How to approach a whiteboard question about design?
+- Clarify requirements, list constraints, propose high-level components, justify choices (tradeoffs), then sketch simple interactions.
+
+Tip: Keep answers short in interviews: state the intent, give a tiny example or where you'd use it, and name tradeoffs.
